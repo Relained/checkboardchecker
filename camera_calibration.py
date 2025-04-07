@@ -55,7 +55,7 @@ def calib_camera_from_chessboard(images, board_pattern, board_cellsize, K=None, 
     return cv.calibrateCamera(obj_points, img_points, gray.shape[::-1], K, dist_coeff, flags=calib_flags)
 
 if __name__ == '__main__':
-    video_file = '../data/chessboard.avi'
+    video_file = './data/chessboard.avi'
     board_pattern = (10, 7)
     board_cellsize = 0.025
 
@@ -69,3 +69,12 @@ if __name__ == '__main__':
     print(f'* RMS error = {rms}')
     print(f'* Camera matrix (K) = \n{K}')
     print(f'* Distortion coefficient (k1, k2, p1, p2, k3, ...) = {dist_coeff.flatten()}')
+
+#     ## Camera Calibration Results
+# * The number of selected images = 19
+# * RMS error = 1.8460775286464666
+# * Camera matrix (K) = 
+# [[1.80903782e+03 0.00000000e+00 5.60007961e+02]
+#  [0.00000000e+00 1.80040519e+03 1.02771473e+03]
+#  [0.00000000e+00 0.00000000e+00 1.00000000e+00]]
+# * Distortion coefficient (k1, k2, p1, p2, k3, ...) = [ 0.28991389 -1.80286459  0.01603806  0.02280817  3.81601434]
